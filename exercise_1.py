@@ -20,5 +20,5 @@ for image in images_path:
     for (x, y, w, h) in faces:
         count += 1
         img_roi = img[y:y+h, x:x+w]
+        img_roi = cv2.resize(img_roi, (162, 162), interpolation=cv2.INTER_LANCZOS4)
         cv2.imwrite(join(path,'cropped','img_'+str(count)+'.png'), img_roi)
-        
